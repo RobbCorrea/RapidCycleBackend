@@ -1,0 +1,22 @@
+{
+  "name": "rapidcycle-backend",
+  "version": "0.0.1",
+  "description": "Backend for RapidCycle Web App www.rapidcycle.com",
+  "main": "index.js",
+  "author": "Roberto Correa Alpizar",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.19.0",
+    "connect-multiparty": "^2.2.0",
+    "express": "^4.17.1",
+    "global": "^4.4.0",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.24.0",
+    "mongoose": "^5.9.6",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}
