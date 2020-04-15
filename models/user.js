@@ -9,7 +9,11 @@ const UserSchema = Schema({
     unique: true
   },
   password: String,
-  role: String,
+  role: {
+    type: String,
+    enum: ["collector", "basic", "guest"],
+    default: "guest"
+  },
   active: Boolean
 });
 
