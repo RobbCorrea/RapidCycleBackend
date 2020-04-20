@@ -14,7 +14,8 @@ const UserSchema = Schema({
     enum: ["collector", "basic", "guest"],
     default: "guest"
   },
-  active: Boolean
+  active: Boolean,
+  avatar: String
 });
 
 module.exports = mongoose.model("User", UserSchema);

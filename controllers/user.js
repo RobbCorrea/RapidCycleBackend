@@ -1,9 +1,8 @@
 const bcrypt = require("bcrypt-nodejs");
 const jwt = require("../services/jwt");
 const User = require("../models/user");
-//const jwt = require("")
 
-async function signUp(req, res) {
+function signUp(req, res) {
   const user = new User();
   const { name, lastname, email, password, repeatPassword, role } = req.body;
   user.name = name;
@@ -92,7 +91,32 @@ function signIn(req, res) {
   });
 }
 
+function getUsers(req, res) {
+  User.find().then(users => {
+    if (!users) {
+      res.status(404).send({ message: "No se ha encontrado ningun usuario." });
+    } else {
+      res.status(200).send({ users });
+    }
+  });
+}
+
+function getUsersActive(req, res) {
+  console.log(req);
+  const query = req.query;
+
+  User.find({ active: query.active }).then(users => {
+    if (!users) {
+      res.status(404).send({ message: "No se ha encontrado ningun usuario." });
+    } else {
+      res.status(200).send({ users });
+    }
+  });
+}
+
 module.exports = {
   signUp,
-  signIn
+  signIn,
+  getUsers,
+  getUsersActive
 };
